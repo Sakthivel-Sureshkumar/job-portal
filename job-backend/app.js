@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
@@ -10,10 +11,7 @@ const userRoutes = require("./routes/user");
 
 const app = express();
 
-const userName = "praveenterax";
-const password = "NblCRcF6hjo1BC3s";
-
-const MONGO_URI = `mongodb+srv://${userName}:${password}@cluster0.tbhhh.mongodb.net/jobPortal?retryWrites=true&w=majority`;
+const MONGO_URI = process.env.MONGO_URI;
 
 app.use(bodyParser.json());
 

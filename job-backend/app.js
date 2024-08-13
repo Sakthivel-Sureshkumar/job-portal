@@ -24,6 +24,10 @@ app.use((req, res, next) => {
   next();
 });
 
+app.get("/",(req,res)=>{
+  res.send("Welcome to Backend Server")
+})
+
 app.use("/auth", authRoutes);
 app.use("/admin", adminRoutes);
 app.use("/provider", providerRoutes);

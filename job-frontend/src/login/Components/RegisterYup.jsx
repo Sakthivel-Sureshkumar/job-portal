@@ -1,21 +1,21 @@
 // import axios from "axios";
+import axios from "axios";
 import { Field, Form, Formik } from "formik";
 import React, { useState } from "react";
-import * as Yup from "yup";
-import axios from "axios";
+import { Button, Col, Container, Row } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
-import { Row, Col, Container, Button } from "react-bootstrap";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import * as Yup from "yup";
 
-import Header from "./Header";
-import classes from "./Register.module.css";
 import {
-  NumberInput,
-  SelectInput,
-  TextInput,
+    NumberInput,
+    SelectInput,
+    TextInput,
 } from "../../components/dashboard/ManageUsers/AddUsersFormik/fields/FieldInputs";
 import SpinnerComponent from "../../components/UI/SpinnerComponent";
+import Header from "./Header";
+import classes from "./Register.module.css";
 
 const Register = (props) => {
   const [showSpinner, setShowSpinner] = useState(false);
@@ -36,7 +36,7 @@ const Register = (props) => {
   const formSubmitHandler = (values, setSubmitting) => {
     setShowSpinner(true);
     axios
-      .post(`http://localhost:8080/auth/register`, { ...values })
+      .post(`https://job-portal-vlva.onrender.com/auth/register`, { ...values })
       .then((res) => {
         setShowSpinner(false);
         toast.success(res.data.message, {

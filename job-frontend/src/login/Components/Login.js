@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
 import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import { useDispatch } from "react-redux";
-import { Form, Button, Col, Container, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Header from "./Header";
 import classes from "./Register.module.css";
@@ -37,7 +37,7 @@ const Login = () => {
       // console.log(inputs);
       setBackendErrors({ show: false, message: "" });
       axios
-        .post("http://localhost:8080/auth/login", inputs)
+        .post("https://job-portal-vlva.onrender.com/auth/login", inputs)
         .then((res) => {
           const token = res.data.token;
           dispatch({

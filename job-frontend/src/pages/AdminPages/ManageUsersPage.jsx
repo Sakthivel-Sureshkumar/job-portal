@@ -1,14 +1,14 @@
-import React, { useState, useEffect, Suspense } from "react";
 import axios from "axios";
+import React, { Suspense, useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 import FormikForm from "../../components/dashboard/ManageUsers/AddUsersFormik/FormikForm";
 import ManageUsers from "../../components/dashboard/ManageUsers/ManageUsers";
+import SpinnerComponent from "../../components/UI/SpinnerComponent";
 import Config from "../../config/Config.json";
 import classes from "./ManageUsersPage.module.css";
-import SpinnerComponent from "../../components/UI/SpinnerComponent";
 
 const ReactModal = React.lazy(() => import("../../components/UI/ReactModal"));
 
@@ -47,7 +47,7 @@ const ManageUsersPage = () => {
     axios
       .delete(
         `${Config.SERVER_URL + "admin/users/" + userId}`,
-        // ,`http://localhost:8080/admin/users/${userId}`
+        // ,`https://job-portal-vlva.onrender.com/admin/users/${userId}`
         {
           headers: {
             Authorization: "Bearer " + token,

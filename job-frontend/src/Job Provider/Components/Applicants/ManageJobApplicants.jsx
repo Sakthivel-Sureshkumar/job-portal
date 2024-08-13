@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
-import { Row, Col, Table, Container } from "react-bootstrap";
-import { useParams } from "react-router-dom";
 import axios from "axios";
-import TableFooter from "../Table/TableFooter";
+import React, { useEffect, useState } from "react";
+import { Col, Container, Row, Table } from "react-bootstrap";
+import { useParams } from "react-router-dom";
 import useTable from "../Hooks/useTable";
+import TableFooter from "../Table/TableFooter";
 
 import SpinnerComponent from "../../../components/UI/SpinnerComponent";
 import classes from "./ApplicantTab.module.css";
@@ -25,7 +25,7 @@ const ManageJobApplicants = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/provider/view-applicants/${jobId}`, {
+      .get(`https://job-portal-vlva.onrender.com/provider/view-applicants/${jobId}`, {
         headers: {
           Authorization: "Bearer " + token,
         },
